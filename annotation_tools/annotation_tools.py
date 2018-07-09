@@ -18,6 +18,7 @@ app = Flask(__name__)
 app.config.from_object('annotation_tools.default_config')
 if 'VAT_CONFIG' in os.environ:
   app.config.from_envvar('VAT_CONFIG')
+app.config["MONGO_URI"] = "mongodb://localhost:27017/visipedia_annotation_toolkit"
 mongo = PyMongo(app)
 
 def get_db():
